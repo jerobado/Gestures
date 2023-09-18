@@ -1,5 +1,5 @@
 altgraph==0.17.2
-future==0.18.2
+future==0.18.3
 keyboard==0.13.5
 pefile==2022.5.30
 pyinstaller==5.3
