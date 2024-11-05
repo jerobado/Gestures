@@ -1,6 +1,6 @@
 import ctypes
 import sys
-from PyQt5.QtWidgets import QApplication, QSystemTrayIcon
+from PyQt6.QtWidgets import QApplication, QSystemTrayIcon
 from src.gui.windows.window import GesturesMainWindow
 from src.gui.widgets.systemtray import GesturesSystemTray
 from src.resources.constant import __appname__, __version__, __orgname__, __orgdomain__

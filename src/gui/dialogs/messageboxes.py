@@ -1,8 +1,8 @@
 # Message boxes
 
 from string import Template
-from PyQt5.QtGui import QPixmap, QIcon
-from PyQt5.QtWidgets import QMessageBox
+from PyQt6.QtGui import QPixmap, QIcon
+from PyQt6.QtWidgets import QMessageBox
 from src.resources import gestures_resources
 from src.resources.constant import (__appname__,
                                     __version__,
