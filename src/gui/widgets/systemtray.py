@@ -1,5 +1,5 @@
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QSystemTrayIcon
+from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import QSystemTrayIcon
 
 from src.gui.widgets.menu import SystemTrayMenu
 

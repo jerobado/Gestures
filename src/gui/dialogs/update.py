@@ -1,6 +1,6 @@
 # Main User Interface of the 'Update' dialog
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import (QDialog,
+from PyQt6.QtGui import QIcon
+from PyQt6.QtWidgets import (QDialog,
                              QLabel,
                              QLineEdit,
                              QPushButton,

@@ -1,6 +1,6 @@
-from PyQt5.QtCore import QModelIndex, QSettings, QSize, QPoint
-from PyQt5.QtGui import QCloseEvent, QIcon
-from PyQt5.QtWidgets import QAction, QMainWindow
+from PyQt6.QtCore import QModelIndex, QSettings, QSize, QPoint
+from PyQt6.QtGui import QCloseEvent, QIcon, QAction
+from PyQt6.QtWidgets import QMainWindow
 
 from src.domain.services import keyboardGestureService
 from src.gui.dialogs.messageboxes import RemoveMessageBox, AboutMessageBox

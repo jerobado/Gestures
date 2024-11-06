@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QLabel, QStatusBar
+from PyQt6.QtWidgets import QLabel, QStatusBar
 from src.domain.services import keyboardGestureService
 
 

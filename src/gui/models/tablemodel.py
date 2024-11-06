@@ -1,4 +1,4 @@
-from PyQt5.QtCore import (Qt,
+from PyQt6.QtCore import (Qt,
                           QAbstractTableModel,
                           QModelIndex)
 from src.domain.entities.keyboard import KeyboardGesture
@@ -19,15 +19,15 @@ class GesturesTableModel(QAbstractTableModel):
 
     def headerData(self, section, orientation, role):
 
-        if role == Qt.DisplayRole:
-            if orientation == Qt.Horizontal:
+        if role == Qt.ItemDataRole.DisplayRole:
+            if orientation == Qt.Orientation.Horizontal:
                 return self.headers[section]
 
     def data(self, index, role):
 
         row, col = index.row(), index.column()
 
-        if role == Qt.DisplayRole:
+        if role == Qt.ItemDataRole.DisplayRole:
             try:
                 record = keyboardGestureRepository.keyboardGestureList[row]
                 cell = record.values[col]

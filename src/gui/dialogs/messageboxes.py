@@ -14,21 +14,21 @@ from src.resources.constant import (__appname__,
 
 AddMessageBox = QMessageBox()
 AddMessageBox.setWindowTitle('Add Gesture Message')
-AddMessageBox.setIcon(QMessageBox.Information)
+AddMessageBox.setIcon(QMessageBox.Icon.Information)
 
 UpdateMessageBox = QMessageBox()
 UpdateMessageBox.setWindowTitle('Update Gesture Message')
-UpdateMessageBox.setIcon(QMessageBox.Information)
+UpdateMessageBox.setIcon(QMessageBox.Icon.Information)
 
 RemoveMessageBox = QMessageBox()
 RemoveMessageBox.setWindowTitle('Delete Gesture')
 RemoveMessageBox.setWindowIcon(QIcon(':g-key-32.png'))
-RemoveMessageBox.setIcon(QMessageBox.Warning)
+RemoveMessageBox.setIcon(QMessageBox.Icon.Warning)
 RemoveMessageBox.setText('Do you really want to remove the selected record?')
-RemoveMessageBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+RemoveMessageBox.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
 
 WarningMessageBox = QMessageBox()
-WarningMessageBox.setIcon(QMessageBox.Warning)
+WarningMessageBox.setIcon(QMessageBox.Icon.Warning)
 
 AboutMessageBox = QMessageBox()
 AboutMessageBox.setWindowIcon(QIcon(':/g-key-32.png'))
@@ -63,5 +63,5 @@ AboutMessageBox.setInformativeText(about_details)
 
 DDayMessageBox = QMessageBox()
 DDayMessageBox.setWindowTitle(f'Unregistered {__appname__}')
-DDayMessageBox.setIcon(QMessageBox.Information)
+DDayMessageBox.setIcon(QMessageBox.Icon.Information)
 DDayMessageBox.setText('It seems you\'ve reached the limited usage for Gestures. Contact GSMGBB for further info.')

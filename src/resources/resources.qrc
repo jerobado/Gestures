@@ -4,6 +4,9 @@
     </qresource>
 </RCC>
 
-<!-- move resources.qrc (this file) in the root folder before running the command below -->
-<!-- pyrcc5 -o resources/gestures_resources.py resources.qrc -->
+<!--Requirements -->
+<!-- - rcc (Resource Compiler) tool provided by Qt -->
+
+<!-- move resources.qrc (this file) in the root folder before running the command below: -->
+<!-- rcc -o resources/gestures_resources.py resources.qrc -->
 <!-- don't forget to add import gestures_resources in your main UI file -->

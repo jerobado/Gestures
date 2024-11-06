@@ -1,6 +1,6 @@
 # Re-implementing QTableView
-from PyQt5.QtCore import Qt, QSortFilterProxyModel, QModelIndex
-from PyQt5.QtWidgets import QTableView
+from PyQt6.QtCore import Qt, QSortFilterProxyModel, QModelIndex
+from PyQt6.QtWidgets import QTableView
 from src.domain.entities.keyboard import KeyboardGesture
 from src.gui.models.tablemodel import GesturesTableModel
 
@@ -23,9 +23,9 @@ class GesturesTableView(QTableView):
     def _set_properties(self):
 
         self.setSortingEnabled(True)
-        self.sortByColumn(0, Qt.AscendingOrder)
+        self.sortByColumn(0, Qt.SortOrder.AscendingOrder)
         self.horizontalHeader().setStretchLastSection(True)
-        self.setSelectionBehavior(QTableView.SelectRows)
+        self.setSelectionBehavior(QTableView.SelectionBehavior.SelectRows)
         self.resizeColumnsToContents()
         self.resizeRowsToContents()
 

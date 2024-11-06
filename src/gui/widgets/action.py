@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Optional
 
-from PyQt5.QtWidgets import QAction
+from PyQt6.QtGui import QAction
 from src.domain.entities.keyboard import KeyboardGesture
 from src.gui.dialogs.add import AddGestureDialog
 from src.gui.dialogs.update import UpdateGestureDialog

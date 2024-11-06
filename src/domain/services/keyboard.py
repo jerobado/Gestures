@@ -1,4 +1,4 @@
-from PyQt5.QtCore import QModelIndex
+from PyQt6.QtCore import QModelIndex
 from src.domain.entities.keyboard import KeyboardGesture
 from src.domain.repositories import keyboardGestureRepository
 from src.gui.dialogs.messageboxes import WarningMessageBox

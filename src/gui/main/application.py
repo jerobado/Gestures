@@ -35,7 +35,7 @@ class GesturesMainApplication(QApplication):
 
     def on_systemTray_activated(self, reason: QSystemTrayIcon):
 
-        if reason == QSystemTrayIcon.Trigger:
+        if reason == QSystemTrayIcon.ActivationReason.Trigger:
             self.window.show()
 
     def run(self):
