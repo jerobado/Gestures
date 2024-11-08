@@ -1,6 +1,6 @@
 import ctypes
 import sys
-from PyQt6.QtWidgets import QApplication, QSystemTrayIcon, QStyleFactory
+from PyQt6.QtWidgets import QApplication, QSystemTrayIcon
 from src.gui.windows.window import GesturesMainWindow
 from src.gui.widgets.systemtray import GesturesSystemTray
 from src.resources.constant import __appname__, __version__, __orgname__, __orgdomain__
@@ -20,11 +20,12 @@ class GesturesMainApplication(QApplication):
 
         self.window = GesturesMainWindow()
 
-        self.systemTray = GesturesSystemTray()
+        self.systemTray = GesturesSystemTray(self.window)
         self.systemTray.setToolTip(f'{self.applicationName()} {self.applicationVersion()}')
 
         self.systemTray.activated.connect(self.on_systemTray_activated)
         self.systemTray.systemTrayMenu.openAction.triggered.connect(self.window.show)
+        self.systemTray.systemTrayMenu.newAction.triggered.connect(self.window.on_newAction_triggered)
         self.systemTray.systemTrayMenu.quitAction.triggered.connect(self.closeAllWindows)
         self.systemTray.systemTrayMenu.quitAction.triggered.connect(self.quit)
 

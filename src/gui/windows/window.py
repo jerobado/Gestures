@@ -103,7 +103,7 @@ class GesturesMainWindow(QMainWindow):
     def deleteRecord(self, index: QModelIndex):
 
         choice = RemoveMessageBox.exec()
-        if choice == RemoveMessageBox.Yes:
+        if choice == RemoveMessageBox.Yes: # TODO: use correct enum
             self.gesturesTableView.removeRecord(index)
             self.updateStatusBar('delete')
 

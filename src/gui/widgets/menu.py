@@ -46,9 +46,11 @@ class SystemTrayMenu(QMenu):
     def __init__(self, parent=None):
 
         super().__init__(parent)
-        self.quitAction = QuitAction(self)
         self.openAction = OpenGesturesAction(self)
+        self.newAction = NewAction(self)
+        self.quitAction = QuitAction(self)
 
         self.addAction(self.openAction)
+        self.addAction(self.newAction)
         self.addSeparator()
         self.addAction(self.quitAction)
