@@ -9,6 +9,7 @@ from src.gui.widgets.statusbar import GesturesStatusBar
 from src.gui.widgets.tableview import GesturesTableView
 from src.resources import gestures_resources
 from src.resources.constant import __appname__
+from src.enums.actions import ActionEnum
 
 
 class GesturesMainWindow(QMainWindow):
@@ -67,7 +68,7 @@ class GesturesMainWindow(QMainWindow):
             validation = keyboardGestureService.validateGesture(new_gesture)
             if validation.is_valid:
                 self.gesturesTableView.addRecord(new_gesture)
-                self.updateStatusBar('new')
+                self.updateStatusBar(ActionEnum.NEW)
             else:
                 validation.showValidationDialog() # TODO: app exits after showing the validation
 
@@ -87,7 +88,7 @@ class GesturesMainWindow(QMainWindow):
             validation = keyboardGestureService.validateGestureOnUpdate(index, updated_gesture)
             if validation.is_valid:
                 self.gesturesTableView.updateRecord(index, updated_gesture)
-                self.updateStatusBar('update')
+                self.updateStatusBar(ActionEnum.UPDATE)
             else:
                 validation.showValidationDialog()
 
@@ -103,9 +104,9 @@ class GesturesMainWindow(QMainWindow):
     def deleteRecord(self, index: QModelIndex):
 
         choice = RemoveMessageBox.exec()
-        if choice == RemoveMessageBox.Yes: # TODO: use correct enum
+        if choice == RemoveMessageBox.StandardButton.Yes:
             self.gesturesTableView.removeRecord(index)
-            self.updateStatusBar('delete')
+            self.updateStatusBar(ActionEnum.DELETE)
 
     def on_quitAction_triggered(self):
 
@@ -115,16 +116,17 @@ class GesturesMainWindow(QMainWindow):
 
         AboutMessageBox.show()
 
-    def updateStatusBar(self, action: str):
+    def updateStatusBar(self, action: ActionEnum):
 
-        if action == 'new':
-            self.setActiveGesturesCountLabel()
-            self.gesturesStatusBar.displayMessage('New gesture added.')
-        elif action == 'update':
-            self.gesturesStatusBar.displayMessage('Selected gesture updated.')
-        elif action == 'delete':
-            self.setActiveGesturesCountLabel()
-            self.gesturesStatusBar.displayMessage('Selected gesture deleted.')
+        match action:
+            case ActionEnum.NEW:
+                self.setActiveGesturesCountLabel()
+                self.gesturesStatusBar.displayMessage('New gesture added.')
+            case ActionEnum.UPDATE:
+                self.gesturesStatusBar.displayMessage('Selected gesture updated.')
+            case ActionEnum.DELETE:
+                self.setActiveGesturesCountLabel()
+                self.gesturesStatusBar.displayMessage('Selected gesture deleted.')
 
     def setActiveGesturesCountLabel(self):
 
