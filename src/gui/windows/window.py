@@ -62,14 +62,14 @@ class GesturesMainWindow(QMainWindow):
     # Slots
     def on_newAction_triggered(self):
 
-        new_gesture = self.gesturesMenuBar.fileMenu.newAction.showAddGestureDialog()
+        new_gesture = self.gesturesMenuBar.fileMenu.newAction.showAddGestureDialog(self)
         if new_gesture:
             validation = keyboardGestureService.validateGesture(new_gesture)
             if validation.is_valid:
                 self.gesturesTableView.addRecord(new_gesture)
                 self.updateStatusBar('new')
             else:
-                validation.showValidationDialog()
+                validation.showValidationDialog() # TODO: app exits after showing the validation
 
     def on_updateAction_triggered(self):
 

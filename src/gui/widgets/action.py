@@ -16,9 +16,9 @@ class NewAction(QAction):
         self.setStatusTip('Add new gesture record.')
         self.setShortcut('Ctrl+N')
 
-    def showAddGestureDialog(self) -> Optional[KeyboardGesture]:
+    def showAddGestureDialog(self, parent) -> Optional[KeyboardGesture]:
 
-        dialog = AddGestureDialog()
+        dialog = AddGestureDialog(parent)
         if dialog.exec():
             return KeyboardGesture(shorthand=dialog.shorthandLineEdit.text(),
                                    value=dialog.valueLineEdit.text(),
