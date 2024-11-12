@@ -79,7 +79,7 @@ class GesturesMainWindow(QMainWindow):
         if validation.is_valid:
             self.updateRecord(selected_index)
         else:
-            validation.showValidationDialog()
+            validation.showValidationDialog(self)
 
     def updateRecord(self, index: QModelIndex):
 
@@ -90,7 +90,7 @@ class GesturesMainWindow(QMainWindow):
                 self.gesturesTableView.updateRecord(index, updated_gesture)
                 self.updateStatusBar(ActionEnum.UPDATE)
             else:
-                validation.showValidationDialog()
+                validation.showValidationDialog(self)
 
     def on_deleteAction_triggered(self):
 
@@ -99,7 +99,7 @@ class GesturesMainWindow(QMainWindow):
         if validation.is_valid:
             self.deleteRecord(selected_index)
         else:
-            validation.showValidationDialog()
+            validation.showValidationDialog(self)
 
     def deleteRecord(self, index: QModelIndex):
 

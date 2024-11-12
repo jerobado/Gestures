@@ -13,7 +13,3 @@ if __name__ == '__main__':
 
     app = GesturesMainApplication()
     app.run()
-
-
-# TODO: convert resources.qrc to PyQt6 version,
-#  see https://stackoverflow.com/questions/66099225/how-can-resources-be-provided-in-pyqt6-which-has-no-pyrcc

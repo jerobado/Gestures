@@ -20,6 +20,7 @@ class GesturesMainApplication(QApplication):
 
         self.window = GesturesMainWindow()
 
+        # TODO: move back to GesturesMainWindow class
         self.systemTray = GesturesSystemTray(self.window)
         self.systemTray.setToolTip(f'{self.applicationName()} {self.applicationVersion()}')
 
