@@ -70,7 +70,7 @@ class GesturesMainWindow(QMainWindow):
                 self.gesturesTableView.addRecord(new_gesture)
                 self.updateStatusBar(ActionEnum.NEW)
             else:
-                validation.showValidationDialog() # TODO: app exits after showing the validation
+                validation.showValidationDialog(self)
 
     def on_updateAction_triggered(self):
 

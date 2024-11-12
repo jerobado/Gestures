@@ -1,7 +1,8 @@
 from PyQt6.QtCore import QModelIndex
+from PyQt6.QtWidgets import QMessageBox
+
 from src.domain.entities.keyboard import KeyboardGesture
 from src.domain.repositories import keyboardGestureRepository
-from src.gui.dialogs.messageboxes import WarningMessageBox
 
 
 class KeyboardGestureService:
@@ -63,14 +64,15 @@ class KeyboardGestureValidation:
 
     is_valid = False
     business_rules = []
-    messagebox = WarningMessageBox
 
     def __init__(self):
 
         self.business_rules.clear()
 
-    def showValidationDialog(self):
+    def showValidationDialog(self, parent):
 
-        self.messagebox.setText('Validation result')
-        self.messagebox.setInformativeText('\n'.join(self.business_rules))
-        self.messagebox.exec()
+        messagebox = QMessageBox(parent)
+        messagebox.setIcon(QMessageBox.Icon.Warning)
+        messagebox.setText('Validation result')
+        messagebox.setInformativeText('\n'.join(self.business_rules))
+        messagebox.exec()
