@@ -52,6 +52,9 @@ class GesturesMainWindow(QMainWindow):
         self.setWindowTitle(__appname__)
         self.resize(700, 400)
 
+        # TODO: research how to enable the Update action when current index is valid
+        # self.gesturesMenuBar.editMenu.updateAction.setEnabled(self.gesturesTableView.currentIndex().isValid())
+
     def _set_connections(self):
 
         self.gesturesMenuBar.fileMenu.newAction.triggered.connect(self.on_newAction_triggered)

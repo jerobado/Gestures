@@ -52,3 +52,8 @@ class GesturesTableView(QTableView):
     def recordCount(self, index):
 
         return self.gesturesTableModel.rowCount(index)
+
+    def currentChanged(self, current, previous):
+
+        # TODO: how can you enable the Update action in this slot?
+        print(f'{self.currentIndex().isValid()}')
