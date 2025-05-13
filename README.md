@@ -49,6 +49,21 @@ System Requirements
 - Memory: 30 MB
 - Storage: 60 MB
 
+Deployment
+---
+
+To deploy or freeze the source code into an executable file. Use the following `.spec` files:
+
+For development
+```
+pyinstaller gestures-debug.spec --noconfirm
+```
+
+For release
+```
+pyinstaller gestures-final.spec --noconfirm
+```
+
 Credits
 ---
 * Arnaud Nelissen aka [Chromatix](http://www.iconarchive.com/artist/chromatix.html) for the beautiful icon use by Gestures
