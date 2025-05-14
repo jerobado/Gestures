@@ -1,3 +1,4 @@
+import keyboard
 from PyQt6.QtCore import QModelIndex, QSettings, QSize, QPoint
 from PyQt6.QtGui import QCloseEvent, QIcon, QAction
 from PyQt6.QtWidgets import QMainWindow
@@ -135,6 +136,10 @@ class GesturesMainWindow(QMainWindow):
 
         records = keyboardGestureService.getTotalRecords()
         self.gesturesStatusBar.activeGesturesCountLabel.setText(f'Active: {records}')
+
+    def hook(self, callback):
+
+        keyboard.hook(callback)
 
     def closeEvent(self, event: QCloseEvent):
 

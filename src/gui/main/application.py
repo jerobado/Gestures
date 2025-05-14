@@ -43,6 +43,13 @@ class GesturesMainApplication(QApplication):
 
     def run(self):
 
+        self.window.hook(key_listener)
         self.window.show()
         self.systemTray.show()
         self.exec()
+
+
+def key_listener(event):
+
+    if event.event_type == 'down':
+        print(f'{event.name=}')
