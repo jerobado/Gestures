@@ -13,9 +13,20 @@ from src.resources.constant import (__appname__,
 from src.gui.dialogs.messageboxes import DDayMessageBox
 
 
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s: %(funcName)s() %(message)s',
-                    datefmt='%Y-%m-%d %H:%M:%S')
+if (getattr(sys, 'frozen', False)):
+    app_dir = os.path.dirname(sys.executable)
+else:
+    app_dir = os.path.dirname(__file__)
+
+logfile = os.path.join(app_dir, 'gestures.log')
+
+logging.basicConfig(
+    filename=logfile,
+    filemode='w',
+    level=logging.DEBUG,
+    format='%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 
 def display_welcome_message() -> None:
@@ -27,6 +38,7 @@ def display_welcome_message() -> None:
     Author: Jero Bado <tokidokitalkyou@gmail.com>
     """
     print(message)
+    logging.info(message)
 
 
 def display_platform_details() -> None:

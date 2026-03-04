@@ -1,4 +1,5 @@
 import ctypes
+import logging
 import sys
 from PyQt6.QtWidgets import QApplication, QSystemTrayIcon
 from src.gui.windows.window import GesturesMainWindow
@@ -9,6 +10,8 @@ from src.resources.constant import __appname__, __version__, __orgname__, __orgd
 class GesturesMainApplication(QApplication):
 
     def __init__(self):
+
+        logging.debug(f'Initializing {GesturesMainApplication.__name__}')
 
         super().__init__(sys.argv)
         self._set_associated_windows_in_taskbar()
@@ -43,6 +46,8 @@ class GesturesMainApplication(QApplication):
 
     def run(self):
 
+        logging.debug(f'Running {GesturesMainApplication.__name__}')
+
         self.window.hook(key_listener)
         self.window.show()
         self.systemTray.show()
@@ -52,4 +57,6 @@ class GesturesMainApplication(QApplication):
 def key_listener(event):
 
     if event.event_type == 'down':
-        print(f'{event.name=}')
+        key = f'{event.name=}'
+        print(key)
+        logging.debug(key)

@@ -1,3 +1,5 @@
+import logging
+
 import keyboard
 from PyQt6.QtCore import QModelIndex, QSettings, QSize, QPoint
 from PyQt6.QtGui import QCloseEvent, QIcon, QAction
@@ -17,6 +19,8 @@ class GesturesMainWindow(QMainWindow):
 
     def __init__(self, parent=None):
 
+        logging.debug(f'Initializing {GesturesMainWindow.__name__}')
+
         super().__init__(parent)
         self._set_widgets()
         self._set_properties()
@@ -32,6 +36,8 @@ class GesturesMainWindow(QMainWindow):
         self.settings.endGroup()
 
     def _write_settings(self):
+
+        logging.debug('Saving settings')
 
         self.settings.beginGroup('GesturesMainWindow')
         self.settings.setValue('size', self.size())
@@ -147,11 +153,13 @@ class GesturesMainWindow(QMainWindow):
             # executed when:
             # - using File > Quit menu
             # - using Ctrl+Q shortcut keys
+            logging.debug(f'Closing {GesturesMainWindow.__name__}')
             self._write_settings()
             event.accept()
         else:
             # executed when (while window is opened, minimized or closed):
             # - using Quit menu in the system tray
             # - using Alt+F4 shortcut keys
+            logging.debug(f'Hiding {GesturesMainWindow.__name__}')
             self.hide()
             event.ignore()
