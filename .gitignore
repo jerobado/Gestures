@@ -1,5 +1,6 @@
 # Gestures stuff
 *.ini
+*.log
 
 # Python stuff
 __pycache__
