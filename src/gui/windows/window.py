@@ -79,6 +79,7 @@ class GesturesMainWindow(QMainWindow):
             if validation.is_valid:
                 self.gesturesTableView.addRecord(new_gesture)
                 self.updateStatusBar(ActionEnum.NEW)
+                logging.debug('added new gesture')
             else:
                 validation.showValidationDialog(self)
 
@@ -99,6 +100,7 @@ class GesturesMainWindow(QMainWindow):
             if validation.is_valid:
                 self.gesturesTableView.updateRecord(index, updated_gesture)
                 self.updateStatusBar(ActionEnum.UPDATE)
+                logging.debug('updated existing gesture')
             else:
                 validation.showValidationDialog(self)
 
@@ -117,6 +119,7 @@ class GesturesMainWindow(QMainWindow):
         if choice == RemoveMessageBox.StandardButton.Yes:
             self.gesturesTableView.removeRecord(index)
             self.updateStatusBar(ActionEnum.DELETE)
+            logging.debug('deleted existing gesture')
 
     def on_quitAction_triggered(self):
 
@@ -161,5 +164,6 @@ class GesturesMainWindow(QMainWindow):
             # - using Quit menu in the system tray
             # - using Alt+F4 shortcut keys
             logging.debug(f'Hiding {GesturesMainWindow.__name__}')
+            logging.debug(f'{GesturesMainWindow.__name__} is now running in the background')
             self.hide()
             event.ignore()

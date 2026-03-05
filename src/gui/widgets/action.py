@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime
 from typing import Optional
 
@@ -17,6 +18,8 @@ class NewAction(QAction):
         self.setShortcut('Ctrl+N')
 
     def showAddGestureDialog(self, parent) -> Optional[KeyboardGesture]:
+
+        logging.debug(f'show {AddGestureDialog.__name__}')
 
         dialog = AddGestureDialog(parent)
         if dialog.exec():
@@ -44,6 +47,8 @@ class UpdateAction(QAction):
         self.setStatusTip('Update existing gesture record.')
 
     def showUpdateGestureDialog(self, selected_index) -> Optional[KeyboardGesture]:
+
+        logging.debug(f'show {UpdateGestureDialog.__name__}')
 
         shorthand = selected_index.sibling(selected_index.row(), 1)
         value = selected_index.sibling(selected_index.row(), 2)
