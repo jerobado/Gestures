@@ -49,6 +49,15 @@ System Requirements
 - Memory: 30 MB
 - Storage: 60 MB
 
+
+Running the app
+---
+
+```
+pipenv shell
+python -m src.main
+```
+
 Deployment
 ---
 
