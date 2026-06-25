@@ -48,15 +48,6 @@ class GesturesMainApplication(QApplication):
 
         logging.debug(f'Running {GesturesMainApplication.__name__}')
 
-        self.window.hook(key_listener)
         self.window.show()
         self.systemTray.show()
         self.exec()
-
-
-def key_listener(event):
-
-    if event.event_type == 'down':
-        key = f'{event.name=}'
-        print(key)
-        logging.debug(key)
