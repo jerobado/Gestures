@@ -7,7 +7,7 @@
 import os
 
 __appname__ = 'gestures'
-__version__ = '2.1.0-develop'
+__version__ = '2.1.2-develop'
 _name = f'{__appname__}-{__version__}'
 
 a = Analysis(
