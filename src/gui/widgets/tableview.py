@@ -1,4 +1,6 @@
 # Re-implementing QTableView
+
+import logging
 from PyQt6.QtCore import Qt, QSortFilterProxyModel, QModelIndex
 from PyQt6.QtWidgets import QTableView
 from src.domain.entities.keyboard import KeyboardGesture
@@ -8,6 +10,8 @@ from src.gui.models.tablemodel import GesturesTableModel
 class GesturesTableView(QTableView):
 
     def __init__(self, parent=None):
+
+        logging.debug(f'Initializing {GesturesTableView.__name__}')
 
         super().__init__(parent)
         self.gesturesTableModel = GesturesTableModel(self)
@@ -56,4 +60,6 @@ class GesturesTableView(QTableView):
     def currentChanged(self, current, previous):
 
         # TODO: how can you enable the Update action in this slot?
-        print(f'{self.currentIndex().isValid()}')
+        logging.debug(f'{self.currentIndex().isValid()=}')
+        logging.debug(f'current: {current.row()} x {current.column()}')
+        logging.debug(f'previous: {previous.row()} x {previous.column()}')
